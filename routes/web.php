@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::Post('/login',[LoginController::class,'store']);
+Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
+
+Route::get('/admin',function(){
+    return view('admin');
+})->name('admin')->middleware('admin');
