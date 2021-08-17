@@ -3,6 +3,11 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Pages\PagesController;
+use App\Http\Livewire\AbsencesComponent;
+use App\Http\Livewire\ContractsComponent;
+use App\Http\Livewire\UsersComponent;
+use App\Http\Livewire\VacationsComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +29,8 @@ Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middlew
 Route::get('/admin',function(){
     return view('admin');
 })->name('admin')->middleware('admin');
+
+Route::get('/vacations',VacationsComponent::class)->name('vacations')->middleware('auth');
+Route::get('/absences',AbsencesComponent::class)->name('absences')->middleware('auth');
+Route::get('/contracts',ContractsComponent::class)->name('contracts')->middleware('auth');
+Route::get('/users',UsersComponent::class)->name('users')->middleware('auth');
