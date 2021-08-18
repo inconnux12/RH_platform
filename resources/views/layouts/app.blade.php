@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/emoji.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/icon.min.css')}}">
     <script src="{{ asset('js/alpinejs.min.js') }}" defer></script>
+    <script src="{{asset('js/app.js')}}" defer></script>
     @livewireStyles
     <title>RH Plateforme</title>
 </head>
@@ -21,10 +22,12 @@
                         <h3 class="font-bold pl-2">DASHBOARD</h3>
                     </div>
                 </div>
-                @if (session('status'))
-                    <div class="text-md text-red-500">{{session('status')}}</div>
-                @endif
-                @yield('content') 
+                <div class="mx-auto">
+                    @if (session('status'))
+                        <div class="text-md text-red-500">{{session('status')}}</div>
+                    @endif
+                    @yield('content') 
+                </div>
             </div>
         </div>
     <footer class="max-w-lg mx-auto flex justify-center text-white">
@@ -33,7 +36,7 @@
         <a href="#" class="hover:underline">Privacy</a>
     </footer>
     @livewireScripts
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>
     
 </html>
