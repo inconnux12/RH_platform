@@ -35,6 +35,7 @@
         <span class="mx-3">•</span>
         <a href="#" class="hover:underline">Privacy</a>
     </footer>
+    <script src="{{asset('js/alp.js')}}"></script>
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>

@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
         ],
         [
             'poste_title' => 'fonctionnaire',
-        ]
+        ],
+        [
+            'poste_title' => 'administrateur',
+        ],
     ]);
     }
 }

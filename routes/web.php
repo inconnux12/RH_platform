@@ -28,3 +28,4 @@ Route::get('/admin',function(){
 
 Route::get('/conge',[CongeController::class,'index'])->name('conge');
 Route::get('/conge/add',[CongeController::class,'create'])->name('conge_add');
+Route::post('/conge/add',[CongeController::class,'store']);

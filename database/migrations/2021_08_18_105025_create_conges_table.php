@@ -18,6 +18,7 @@ class CreateCongesTable extends Migration
             $table->string('conge_type');
             $table->foreignId('user_id')->constrained()->on('users')->onDelete('cascade');
             $table->integer('conge_status')->default(1);
+            $table->string('dst_adrs');
             $table->date('conge_start_date');
             $table->date('conge_end_date');
             $table->timestamps();

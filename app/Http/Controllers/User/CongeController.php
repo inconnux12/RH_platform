@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CongeController extends Controller
@@ -21,6 +22,20 @@ class CongeController extends Controller
     }
     public function store(Request $request)
     {
-
+        $this->validate($request,[
+            'dst_adrs'=>'required',
+            'conge_typ'=>'required',
+        ]);
+        $cong_day=$request->input('conge_typ')=='1'?30:2;
+        $conge_typ=$request->input('conge_typ')=='1'?'annuel':'exceptionnel';
+        $start_date=$request->input('conge_start_date');
+        $end_date=Carbon::createFromDate($request->input('conge_start_date'))->addDays($cong_day)->toDateString();
+        $request->user()->conges()->create([
+            'conge_type'=>$conge_typ,
+            'dst_adrs'=>$request->input('dst_adrs'),
+            'conge_start_date'=>$start_date,
+            'conge_end_date'=>$end_date
+        ]);
+        return redirect()->route('conge');
     }
 }
