@@ -14,3 +14,17 @@ let data=()=>{
       },
     }
   }
+
+  let input=()=>{
+    return{
+      show:false,
+      id:0,
+      changeShow(id){
+        this.show=true
+        this.id=id
+      },
+      inputShow(id){
+        return this.show&&this.id==id
+      }
+    }
+  }

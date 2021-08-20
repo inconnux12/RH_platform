@@ -23,9 +23,6 @@
                     </div>
                 </div>
                 <div class="mx-auto">
-                    @if (session('status'))
-                        <div class="text-md text-red-500">{{session('status')}}</div>
-                    @endif
                     @yield('content') 
                 </div>
             </div>

@@ -19,6 +19,9 @@ class Conge extends Model
         'conge_status',
         'conge_start_date',
         'conge_end_date',
+        'dst_adrs',
+        'conge_raison',
+        'motif'
     ];  
     public function user()
     {
