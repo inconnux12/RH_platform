@@ -9,14 +9,17 @@ use Livewire\Component;
 
 class CreateEmployer extends Component
 {
-    public $name;
-    public $username;
-    public $password;
-    public $password_confirmation;
-    public $address;
-    public $email;
-    public $poste;
-    public $role;
+    public $name='';
+    public $username='';
+    public $password='';
+    public $password_confirmation='';
+    public $address='';
+    public $email='';
+    public $poste='';
+    public $role='';
+
+    public $modal=false;
+    protected $listeners = ['refresh' => 'reseatAll'];
     protected $rules = [
         'name' => 'required',
         'username' => 'required',
@@ -26,6 +29,17 @@ class CreateEmployer extends Component
         'poste'=>'required',
         'role'=>'required'
     ];
+
+    public function reseatAll()
+    {
+        $this->reset(['name',
+        'username',
+        'email',
+        'password',
+        'address',
+        'poste',
+        'role']);
+    }
     public function submit()
     {
         $this->validate();
@@ -42,6 +56,8 @@ class CreateEmployer extends Component
             'user_id'=>$user->id
         ]);
         $this->emitUp('refreshComponent');
+        $this->emit('refresh');
+        $this->modal=false;
     }
     public function render()
     {

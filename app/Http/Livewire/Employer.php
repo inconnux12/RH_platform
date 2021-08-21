@@ -12,7 +12,11 @@ class Employer extends Component
 
     protected $listeners = ['refreshComponent' => '$refresh','refreshrt'=>'onUpdated'];
     public $t_id=0;
-
+    
+    public function paginationView()
+    {
+        return 'livewire.pagination';
+    }
     public function onUpdated()
     {
         $this->reset('t_id');

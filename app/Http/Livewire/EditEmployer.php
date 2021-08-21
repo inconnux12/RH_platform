@@ -15,6 +15,7 @@ class EditEmployer extends Component
     protected $rules = [
         'user.name' => 'required',
         'user.username' => 'required',
+        'user.password'=>'',
         'user.email' => 'required|email',
         'user.user_adrs'=> 'required',
         'poste.poste_title'=>'required',

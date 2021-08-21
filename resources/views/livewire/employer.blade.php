@@ -75,7 +75,7 @@
               </tr>
               
               @if ($t_id==$user->id)
-              <tr>
+              <tr :class="showEModal?'':'hidden'">
                 <td colspan="6">
                     <livewire:edit-employer :user="$user" :key="$user->id"/>
                 </td>
