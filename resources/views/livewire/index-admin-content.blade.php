@@ -1,4 +1,13 @@
 <div>
+  @if (!$conges->count())
+  <div class="bg-blue-100 p-5 w-full border-l-4 border-blue-500 shadow-md rounded-lg">
+    <div class="flex items-center">
+      <div class="flex-1  text-lg  text-blue-700">
+          <i class="fas fa-info-circle pr-2"></i><span>il n y a aucunce de demande de congé a traité</span>
+      </div>
+    </div>
+  </div>
+  @else  
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
         Table de vos demande de congés
       </h4>      
@@ -62,16 +71,16 @@
                 <td class="px-4 py-3">
                   {{$conge->conge_end_date}}
                 </td>
-                <td class="px-4 py-3 text-xs">
+                <td class="px-4 py-3 text-md">
                     <div class="flex items-center space-x-4 text-sm">
                         <button wire:click="accord({{$conge->id}})"
-                          class="flex items-center justify-between px-2 py-2 text-sm bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray"
+                          class="flex items-center justify-between px-2 py-2 text-md bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray"
                           aria-label="Edit"
                         >
                         accordé
                         </button>
                         <button x-on:click="changeShow({{$conge->id}})"
-                          class="flex items-center justify-between px-2 py-2 text-sm font-medium bg-red-500 leading-5 text-white rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                          class="flex items-center justify-between px-2 py-2 text-md font-medium bg-red-500 leading-5 text-white rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                           aria-label="Delete"
                         >
                         refusé
@@ -81,7 +90,7 @@
               </tr>  
   
             <template x-if="inputShow({{$conge->id}})">
-                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <tr class="text-md font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                 <td colspan="6">
                     <form action="" x-data="{motif: @entangle('motif').defer}" @submit.prevent="$wire.refuse({{$conge->id}})">
                         <span class="text-gray-700">motif de refu</span>
@@ -89,9 +98,9 @@
                         class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 @error('motif') border border-red-500 @enderror leading-tight focus:outline-none focus:bg-white"
                         /> 
                         @error('motif')
-                            <div class="text-sm text-red-500">le motif est obligatoire</div>
+                            <div class="text-md text-red-500">le motif est obligatoire</div>
                         @enderror
-                          <input type="submit" value="envoyer" class="flex items-center justify-between px-2 py-2 text-sm bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray">
+                          <input type="submit" value="envoyer" class="flex items-center justify-between px-2 py-2 text-md bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray">
                     </form>
                 </td>
                 </tr>
@@ -102,4 +111,5 @@
         </div>
       </div>
       {!!$conges->links()!!}
+  @endif
 </div>

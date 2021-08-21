@@ -47,12 +47,15 @@ class CongeController extends Controller
             'conge_end_date'=>$end_date,
             'conge_raison'=>$conge_raison
         ]);
+        if($cong_day==30){
+            $user=$request->user();
+            $user->conge_nbr--;
+            $user->save();
+        }
         return redirect()->route('conge')->with('status','votre demande de congé a été enregister');
     }
     public function indexAdmin()
     {
-        
         return view('user.conge.indexAdmin');
-
     }
 }

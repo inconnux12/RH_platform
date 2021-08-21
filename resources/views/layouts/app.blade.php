@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/emoji.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/icon.min.css')}}">
-    <script src="{{ asset('js/alpinejs.min.js') }}" defer></script>
+    <script src="{{asset('js/alpinejs.min.js')}}" defer></script>
     <script src="{{asset('js/app.js')}}" defer></script>
     @livewireStyles
     <title>RH Plateforme</title>

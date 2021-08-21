@@ -16,6 +16,7 @@ class Poste extends Model
      */
     protected $fillable = [
         'poste_title',
+        'user_id'
     ];
 
     public function user()

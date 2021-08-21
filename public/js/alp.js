@@ -28,3 +28,14 @@ let data=()=>{
       }
     }
   }
+
+  let modal=()=>{
+    return {
+      'showEModal': false ,
+      user:0,
+      change(id){
+        this.user=id
+        this.showEModal=true
+      }
+    }
+  }
