@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\User\AbsencesController;
 use App\Http\Controllers\User\CongeController;
 use App\Http\Controllers\User\EmployerController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::post('/conge/add',[CongeController::class,'store']);
 Route::get('/conge/list',[CongeController::class,'indexAdmin'])->name('indexAdmin');
 
 Route::get('/employer',[EmployerController::class,'index'])->name('users');
+
+Route::get('/absences',[AbsencesController::class,'index'])->name('absences');

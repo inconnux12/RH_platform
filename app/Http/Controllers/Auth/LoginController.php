@@ -27,6 +27,10 @@ class LoginController extends Controller
         if(!Auth::attempt($request->only('username','password'),$request->remember)){
             return back()->with('status','invalid username or password');
         }
+        if($request->user()->status_id!=2){
+            $request->user()->status_id=2;
+            $request->user()->save();
+        }
         return redirect()->route('dashboard');
     }
 }

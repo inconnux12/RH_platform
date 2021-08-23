@@ -28,11 +28,14 @@ class IndexAdminContent extends Component
     {
         $conge=conge::find((int)$id);
         $conge->conge_status="2";
+        $user=User::find($conge->user_id);
+        $user->status_id=3;
+        $user->save();
         $conge->save();
     }
     public function refuse($id){
         $conge=conge::find((int)$id);
-        $user=User::find(auth()->user()->id);
+        $user=User::find($conge->user_id);
         $conge->conge_status="3";
         $conge->motif=$this->motif;
         $user->conge_nbr++;
