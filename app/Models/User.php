@@ -23,6 +23,8 @@ class User extends Authenticatable
         'role',
         'user_adrs',
         'username',
+        'zone_id',
+        'affectation_nbr'
     ];
 
     /**
@@ -57,5 +59,20 @@ class User extends Authenticatable
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function Zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
+
+    public function Contrat()
+    {
+        return $this->belongsTo(Contrat::class);
+    }
+
+    public function Affectations()
+    {
+        return $this->hasMany(Affectation::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Poste;
 use App\Models\User;
+use App\Models\Zone;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -16,6 +17,7 @@ class CreateEmployer extends Component
     public $address='';
     public $email='';
     public $poste='';
+    public $zone='';
     public $role='';
 
     public $modal=false;
@@ -27,6 +29,7 @@ class CreateEmployer extends Component
         'password'=>'required|confirmed',
         'address'=> 'required',
         'poste'=>'required',
+        'zone'=>'required',
         'role'=>'required'
     ];
 
@@ -38,6 +41,7 @@ class CreateEmployer extends Component
         'password',
         'address',
         'poste',
+        'zone',
         'role']);
     }
     public function submit()
@@ -49,6 +53,7 @@ class CreateEmployer extends Component
             'email'=>$this->email,
             'password'=>Hash::make($this->password),
             'user_adrs'=>$this->address,
+            'zone_id'=>$this->zone,
             'role'=>$this->role
         ]);
         Poste::create([
@@ -61,6 +66,7 @@ class CreateEmployer extends Component
     }
     public function render()
     {
-        return view('livewire.create-employer');
+        $zones=Zone::get();
+        return view('livewire.create-employer')->with('zones',$zones);
     }
 }

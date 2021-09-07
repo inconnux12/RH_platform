@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Poste;
+use App\Models\Zone;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -19,6 +20,7 @@ class EditEmployer extends Component
         'user.email' => 'required|email',
         'user.user_adrs'=> 'required',
         'poste.poste_title'=>'required',
+        'user.zone_id'=>'required',
         'user.role'=>'required'
     ];
     public function submit()
@@ -37,6 +39,7 @@ class EditEmployer extends Component
     }
     public function render()
     {
-        return view('livewire.edit-employer');
+        $zones=Zone::get();
+        return view('livewire.edit-employer')->with('zones',$zones);
     }
 }

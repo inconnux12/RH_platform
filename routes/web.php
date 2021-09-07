@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\User\AbsencesController;
+use App\Http\Controllers\User\AffectationController;
 use App\Http\Controllers\User\CongeController;
 use App\Http\Controllers\User\EmployerController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,13 @@ Route::get('/admin',function(){
 Route::get('/conge',[CongeController::class,'index'])->name('conge');
 Route::get('/conge/add',[CongeController::class,'create'])->name('conge_add');
 Route::post('/conge/add',[CongeController::class,'store']);
-Route::get('/conge/list',[CongeController::class,'indexAdmin'])->name('indexAdmin');
+Route::get('/conge/list',[CongeController::class,'indexAdmin'])->name('indexAdminconge');
+
+Route::get('/affectation',[AffectationController::class,'index'])->name('affectation');
+Route::get('/affectation/add',[AffectationController::class,'create'])->name('affectation_add');
+Route::post('/affectation/add',[AffectationController::class,'store']);
+Route::get('/affectation/list',[AffectationController::class,'indexAdmin'])->name('indexAdminaffectation');
+Route::get('/affectation/users/list',[AffectationController::class,'responsable_affectation'])->name('rs_affectation');
 
 Route::get('/employer',[EmployerController::class,'index'])->name('users');
 

@@ -25,6 +25,9 @@ let data=()=>{
       },
       inputShow(id){
         return this.show&&this.id==id
+      },
+      initShow(){
+        this.show=false
       }
     }
   }

@@ -13,8 +13,7 @@
                 <th class="px-4 py-3">Nom</th>  
                 <th class="px-4 py-3">Status</th>
                 <th class="px-4 py-3">Poste</th>
-                <th class="px-4 py-3">Date de debut</th>
-                <th class="px-4 py-3">Date de fin</th>
+                <th class="px-4 py-3">Zone de travail</th>
                 <th class="px-4 py-3">action</th>
               </tr>
             </thead>
@@ -47,10 +46,7 @@
                     {{$user->poste->poste_title}}
                 </td>
                 <td class="px-4 py-3 text-sm">
-                  {{$user->created_at}}
-                </td>
-                <td class="px-4 py-3">
-                  {{$user->created_at}}
+                  {{$user->zone->zone_name}}
                 </td>
                 <td class="px-4 py-3" >
                     <div class="flex items-center space-x-4 text-sm">

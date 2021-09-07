@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Facade\Ignition\DumpRecorder\Dump;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
@@ -10,6 +11,7 @@ class SideComponent extends Component
     public $currentUrl;
     public $sub;
     public $show=false;
+    public $show2=false;
 
     public function mount()
     {
@@ -25,9 +27,9 @@ class SideComponent extends Component
     public function keepOpen()
     {
         if($this->currentUrl=="conge")
-        {
             $this->show=true;
-        }
+        else if($this->currentUrl=="affectation")
+            $this->show2=true;
         else
             $this->show=false;
     }
