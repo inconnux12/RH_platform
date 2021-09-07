@@ -19,8 +19,8 @@ let data=()=>{
     return{
       show:false,
       id:0,
-      changeShow(id){
-        this.show=true
+      changeShow(id=0){
+        this.show= !this.show
         this.id=id
       },
       inputShow(id){

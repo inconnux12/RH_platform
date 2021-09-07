@@ -60,9 +60,9 @@
                   </td>
                 </tr> 
                 <template x-if="inputShow({{$user->id}})">
-                    <tr class="text-md font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <tr  x-data="{zone: @entangle('zone'),type:@entangle('type'),show:true}" x-show="show" class="text-md font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <td colspan="6">
-                        <form action="" x-data="{zone: @entangle('zone'),type:@entangle('type')}" @submit.prevent="$wire.affecter({{$user->id}})">
+                        <form action="" @submit.prevent="$wire.affecter({{$user->id}})">
                             <div class="flex flex-wrap mb-0">
                                 <div class="relative w-1/2 px-3 mb-0 text-md">
                                     <span class="text-gray-700 dark:text-gray-400">type d'affectation</span>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                              <input x-on:click="$parent.initShow()" type="submit" value="confirmer" class="flex items-center justify-between px-2 py-2 text-md bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray">
+                              <input x-on:click="show= !show" type="submit" value="confirmer" class="flex items-center justify-between px-2 py-2 text-md bg-green-500 font-medium leading-5 text-white rounded-lg  focus:outline-none focus:shadow-outline-gray">
                         </form>
                     </td>
                     </tr>
