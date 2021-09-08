@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -66,9 +65,9 @@ class User extends Authenticatable
         return $this->belongsTo(Zone::class);
     }
 
-    public function Contrat()
+    public function contrat()
     {
-        return $this->belongsTo(Contrat::class);
+        return $this->hasOne(Contrat::class);
     }
 
     public function Affectations()

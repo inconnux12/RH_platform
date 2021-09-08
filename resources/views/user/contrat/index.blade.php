@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    contrat
+    <livewire:contrat />
 @endsection

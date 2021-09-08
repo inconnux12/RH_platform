@@ -11,9 +11,10 @@ class Contrat extends Model
     protected $fillable = [
         'contrat_type',
         'contrat_start_date',
-        'contrat_end_date'
+        'contrat_end_date',
+        'user_id'
     ];
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

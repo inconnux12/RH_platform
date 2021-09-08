@@ -77,8 +77,8 @@
                 </li>
                 <li class="relative flex-1">
 
-                    <a x-bind:class="page=='contracts'?'border-blue-600':''" href="{{-- {{route('contracts')}} --}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                        <i x-bind:class="page=='contracts'?'text-blue-600':''" class="fas fa-briefcase pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">les contrats</span>
+                    <a x-bind:class="page=='contrats'?'border-blue-600':''" href="{{route('contracts')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
+                        <i x-bind:class="page=='contrats'?'text-blue-600':''" class="fas fa-briefcase pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">les contrats</span>
                     </a>
                 </li>
             </ul>

@@ -1,7 +1,7 @@
 <div>
     <livewire:create-employer />
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Table de vos demande de congés
+        Table des employer
       </h4>      
       <div class="w-full overflow-hidden rounded-lg shadow-xs">
         <div class="w-full overflow-x-auto">

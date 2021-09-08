@@ -20,8 +20,13 @@ let data=()=>{
       show:false,
       id:0,
       changeShow(id=0){
-        this.show= !this.show
-        this.id=id
+        if(this.id==id){
+          this.show=!this.show
+        }
+        else{
+          this.id=id
+          this.show=true
+        }
       },
       inputShow(id){
         return this.show&&this.id==id
@@ -43,3 +48,22 @@ let data=()=>{
     }
   }
   
+  let contrat=()=>{
+    return{
+      inpt_typ:false,
+      contrat_type:0,
+      CDD(){
+        return this.contrat_type===1?true:false
+      },
+      CDI(){
+        return this.contrat_type===2?true:false
+      },
+      display(val){
+        this.contrat_type=val
+        this.inpt_typ=true
+      },
+      isDisplay(){
+        return this.inpt_typ&&this.contrat_type==1
+      }
+    }
+  }
