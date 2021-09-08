@@ -23,7 +23,8 @@ class User extends Authenticatable
         'user_adrs',
         'username',
         'zone_id',
-        'affectation_nbr'
+        'affectation_nbr',
+        'conge_nbr'
     ];
 
     /**

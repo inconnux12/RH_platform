@@ -35,33 +35,76 @@ class DatabaseSeeder extends Seeder
                 'zone_name' => 'Zone 06',
             ]
         ]);
-        /* DB::table('users')->insert([
+        DB::table('statuses')->insert([
             [
-                'poste_title' => 'comptable',
+                'status'=>1,
+                'status_title' => 'absent',
             ],
             [
-                'poste_title' => 'agent',
+                'status'=>2,
+                'status_title' => 'present',
             ],
             [
-                'poste_title' => 'fonctionnaire',
+                'status'=>3,
+                'status_title' => 'congé',
+            ],
+        ]);
+        DB::table('users')->insert([
+            [
+                'name'=>'admin',
+                'email'=>'admin@mail.com',
+                'password'=>Hash::make('admin'),
+                'role'=>1,
+                'user_adrs'=>'123 rue alger',
+                'username'=>'admin',
+                'zone_id'=>1,
+                
             ],
             [
-                'poste_title' => 'administrateur',
+                'name'=>'rsuser',
+                'email'=>'rsuser@mail.com',
+                'password'=>Hash::make('rsuser'),
+                'role'=>2,
+                'user_adrs'=>'123 rue alger',
+                'username'=>'rsuser',
+                'zone_id'=>1,
+            ],
+            [
+                'name'=>'rhuser',
+                'email'=>'rhuser@mail.com',
+                'password'=>Hash::make('rhuser'),
+                'role'=>3,
+                'user_adrs'=>'123 rue alger',
+                'username'=>'rhuser',
+                'zone_id'=>1,
+            ],
+            [
+                'name'=>'user',
+                'email'=>'user@mail.com',
+                'password'=>Hash::make('user'),
+                'role'=>4,
+                'user_adrs'=>'123 rue alger',
+                'username'=>'user',
+                'zone_id'=>1,
             ],
         ]);
         DB::table('postes')->insert([
-        [
-            'poste_title' => 'comptable',
-        ],
-        [
-            'poste_title' => 'agent',
-        ],
-        [
-            'poste_title' => 'fonctionnaire',
-        ],
-        [
-            'poste_title' => 'administrateur',
-        ],
-    ]);*/
+            [
+                'poste_title' => 'administrateur',
+                'user_id'=>1
+            ],
+            [
+                'poste_title' => 'chef de service',
+                'user_id'=>2
+            ],
+            [
+                'poste_title' => 'responsable resource humaine',
+                'user_id'=>3
+            ],
+            [
+                'poste_title' => 'fonctionnaire',
+                'user_id'=>4
+            ],
+        ]);
     } 
 }
