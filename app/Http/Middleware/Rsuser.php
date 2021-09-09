@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Rsuser
 {
@@ -16,6 +17,15 @@ class Rsuser
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $user=Auth::user();
+        if($user && ($user->role == 1||$user->role==2)){
+            return $next($request);
+        }
+        else if($user && ($user->role != 1||$user->role!=2)){
+            return redirect()->route('dashboard')->with('status','vous avez pas les permission');
+        }
+        else{
+            return redirect()->route('login');
+        }
     }
 }

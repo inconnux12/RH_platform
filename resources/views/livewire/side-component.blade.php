@@ -13,6 +13,7 @@
                     </div>
                     <div x-show="show" x-transition.duration.500ms>
                         <ul  class="bg-gray-900 ml-2">
+                            @emuser
                             <li>
                                 <a x-bind:class="sub==''&& page=='conge'?'border-blue-600':''" href="{{route('conge')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-900 hover:border-purple-500">
                                     <span class="pb-1 md:text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">vos demande de congé</span>
@@ -23,12 +24,14 @@
                                     <span class="pb-1 md:text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">formulaire de congé</span>
                                 </a>
                             </li>
+                            @endemuser
+                            @rsuser
                             <li>
                                 <a x-bind:class="sub=='list' && page=='conge'?'border-blue-600':''" href="{{route('indexAdminconge')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-900 hover:border-purple-500">
                                     <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">liste des demande de congés</span>
                                 </a>
                             </li>
-                            
+                            @endrsuser
                         </ul>
                     </div>
                 </li>
@@ -42,6 +45,7 @@
                     </div>
                     <div x-show="show2" x-transition.duration.500ms>
                         <ul  class="bg-gray-900 ml-2">
+                            @emuser
                             <li>
                                 <a x-bind:class="sub==''&& page=='affectation'?'border-blue-600':''" href="{{route('affectation')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-900 hover:border-purple-500">
                                     <span class="pb-1 md:text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">vos demande d'affectations</span>
@@ -52,35 +56,45 @@
                                     <span class="pb-1 md:text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">formulaire d'affectations</span>
                                 </a>
                             </li>
+                            @endemuser
+                            @rsuser
                             <li>
                                 <a x-bind:class="sub=='list' && page=='affectation'?'border-blue-600':''" href="{{route('indexAdminaffectation')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-900 hover:border-purple-500">
                                     <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">liste des demande d'affectations</span>
                                 </a>
                             </li>
+                            @endrsuser
+                            @rhuser
                             <li>
                                 <a x-bind:class="sub=='users' && page=='affectation'?'border-blue-600':''" href="{{route('rs_affectation')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-900 hover:border-purple-500">
                                     <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">effectuer une affectation</span>
                                 </a>
-                            </li>                            
+                            </li> 
+                            @endrhuser                           
                         </ul>
                     </div>
                 </li>
+                @rsuser
                 <li class="mr-3 flex-1">
                     <a x-bind:class="page=='absences'?'border-blue-600':''" href="{{route('absences')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
                         <i x-bind:class="page=='absences'?'text-blue-600':''" class="fa fa-briefcase-medical pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">les absences</span>
                     </a>
                 </li>
+                @endrsuser
+                @admin
                 <li class="mr-3 flex-1">
                     <a x-bind:class="page=='employer'?'border-blue-600':''" href="{{route('users')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
                         <i x-bind:class="page=='employer'?'text-blue-600':''" class="fa fa-users pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">les employers</span>
                     </a>
                 </li>
+                @endadmin
+                @rhuser
                 <li class="relative flex-1">
-
                     <a x-bind:class="page=='contrats'?'border-blue-600':''" href="{{route('contracts')}} " class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
                         <i x-bind:class="page=='contrats'?'text-blue-600':''" class="fas fa-briefcase pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">les contrats</span>
                     </a>
                 </li>
+                @endrhuser
             </ul>
         </div>
     </div>

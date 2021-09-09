@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Emuser
 {
@@ -16,6 +17,12 @@ class Emuser
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $user=Auth::user();
+        if($user && ($user->role == 1||$user->role == 2||$user->role == 3||$user->role == 4)){
+            return $next($request);
+        }
+        else{
+            return redirect()->route('login');
+        }
     }
 }

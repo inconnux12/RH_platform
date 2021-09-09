@@ -6,9 +6,6 @@ class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
 >
 formulaire de demande de congé
 </h4>
-  @if (session('status'))
-    <div class="text-md text-red-500">{{session('status')}}</div>
-  @endif
 <div class="px-4 py-3 mb-8 bg-white w-3/4 mx-auto rounded-lg shadow-md dark:bg-gray-800" >
 <form action="{{route('conge_add')}}" method="post">
   @csrf

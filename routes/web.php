@@ -30,19 +30,19 @@ Route::get('/admin',function(){
     return view('admin');
 })->name('admin')->middleware('admin');
 
-Route::get('/conge',[CongeController::class,'index'])->name('conge');
-Route::get('/conge/add',[CongeController::class,'create'])->name('conge_add');
+Route::get('/conge',[CongeController::class,'index'])->name('conge')->middleware('emuser');
+Route::get('/conge/add',[CongeController::class,'create'])->name('conge_add')->middleware('emuser');
 Route::post('/conge/add',[CongeController::class,'store']);
-Route::get('/conge/list',[CongeController::class,'indexAdmin'])->name('indexAdminconge');
+Route::get('/conge/list',[CongeController::class,'indexAdmin'])->name('indexAdminconge')->middleware('rsuser');
 
-Route::get('/affectation',[AffectationController::class,'index'])->name('affectation');
-Route::get('/affectation/add',[AffectationController::class,'create'])->name('affectation_add');
+Route::get('/affectation',[AffectationController::class,'index'])->name('affectation')->middleware('emuser');
+Route::get('/affectation/add',[AffectationController::class,'create'])->name('affectation_add')->middleware('emuser');
 Route::post('/affectation/add',[AffectationController::class,'store']);
-Route::get('/affectation/list',[AffectationController::class,'indexAdmin'])->name('indexAdminaffectation');
-Route::get('/affectation/users/list',[AffectationController::class,'responsable_affectation'])->name('rs_affectation');
+Route::get('/affectation/list',[AffectationController::class,'indexAdmin'])->name('indexAdminaffectation')->middleware('rsuser');
+Route::get('/affectation/users/list',[AffectationController::class,'responsable_affectation'])->name('rs_affectation')->middleware('rhuser');
 
-Route::get('/employer',[EmployerController::class,'index'])->name('users');
+Route::get('/employer',[EmployerController::class,'index'])->name('users')->middleware('admin');
 
-Route::get('/absences',[AbsencesController::class,'index'])->name('absences');
+Route::get('/absences',[AbsencesController::class,'index'])->name('absences')->middleware('rsuser');
 
-Route::get('/contrats',[ContratController::class,'index'])->name('contracts');
+Route::get('/contrats',[ContratController::class,'index'])->name('contracts')->middleware('rhuser');
