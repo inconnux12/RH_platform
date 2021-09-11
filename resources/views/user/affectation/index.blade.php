@@ -5,7 +5,7 @@
   @if ($affectations->count())
     @if (session('status'))
     <div x-data="{close:true}">
-        <div  x-show="close" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500" >
+        <div  x-show="close" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-green-500" >
             <span class="text-xl inline-block mr-5 align-middle">
                 <i class="fas fa-bell"></i>
             </span>
@@ -16,9 +16,6 @@
                 <span x-on:click="close=false">×</span>
             </button>
         </div>
-    </div>
-    @endif
-      </div>
     </div>
     @endif
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">

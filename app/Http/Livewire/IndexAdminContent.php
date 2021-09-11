@@ -11,20 +11,28 @@ class IndexAdminContent extends Component
 {
     use WithPagination;
 
-    public $motif="";
+    public $refuseId=0;
+    protected $listeners=['refuseConge'=>'update'];
     
     public function paginationView()
     {
         return 'livewire.pagination';
     }
-
+    public function update()
+    {
+        $this->reset('refuseId');
+    }
     public function render()
     {
         $conges=Conge::where('conge_status','1')->paginate(7);
         return view('livewire.index-admin-content',['conges'=>$conges]);
     }
 
-    public function accord($id)
+    public function refuse($id)
+    {
+        $this->refuseId=$id;
+    }
+     public function accord($id)
     {
         $conge=conge::find((int)$id);
         $conge->conge_status="2";
@@ -33,13 +41,9 @@ class IndexAdminContent extends Component
         $user->save();
         $conge->save();
     }
-    public function refuse($id){
-        $conge=conge::find((int)$id);
-        $user=User::find($conge->user_id);
-        $conge->conge_status="3";
-        $conge->motif=$this->motif;
-        $user->conge_nbr++;
-        $user->save();
-        $conge->save();
+    /*public function refuse($id,$motif){
+        
+        
     }
+ */
 }

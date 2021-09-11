@@ -8,8 +8,8 @@ use Livewire\Component;
 
 class RsAffectation extends Component
 {
-    public $zone;
-    public $type;
+    public $editId=0;
+    protected $listeners=['doAffectation'=>'update'];
 
     public function render()
     {
@@ -18,16 +18,11 @@ class RsAffectation extends Component
             'users'=>$users
         ]);
     }
-
+    public function update()
+    {
+        $this->reset('editId');
+    }
     public function affecter($id){
-        Affectation::create([
-            'affectation_type'=>$this->type,
-            'user_id'=>$id,
-            'affectation_status'=>'2',
-            'zone_affectation'=>$this->zone
-        ]);
-        $user=User::find((int)$id);
-        $user->zone_id=$this->zone;
-        $user->save();
+        $this->editId=$id;
     }
 }
