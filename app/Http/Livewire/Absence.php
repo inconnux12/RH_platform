@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,7 +18,12 @@ class Absence extends Component
     
     public function render()
     {
-        $users=User::where('status_id',1)->paginate(5);
+        $lists=User::all();
+        $users=[];
+        foreach ($lists as $user) {
+            if (!Cache::has('user-is-online-' . $user->id))
+                array_push($users,$user);
+        }
         return view('livewire.absence',['users'=>$users]);
     }
 }

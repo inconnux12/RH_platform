@@ -26,10 +26,6 @@ Route::post('/logout',[LogoutController::class,'logout'])->name('logout');
 
 Route::get('/',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/admin',function(){
-    return view('admin');
-})->name('admin')->middleware('admin');
-
 Route::get('/conge',[CongeController::class,'index'])->name('conge')->middleware('emuser');
 Route::get('/conge/add',[CongeController::class,'create'])->name('conge_add')->middleware('emuser');
 Route::post('/conge/add',[CongeController::class,'store']);

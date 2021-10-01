@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\UserLastLogin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -38,6 +39,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\UserLastLogin::class,
         ],
 
         'api' => [
@@ -67,6 +69,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'rsuser' => \App\Http\Middleware\Rsuser::class,
         'rhuser' => \App\Http\Middleware\Rhuser::class,
-        'emuser' => \App\Http\Middleware\emuser::class,
+        'emuser' => \App\Http\Middleware\Emuser::class,
+        
     ];
 }
