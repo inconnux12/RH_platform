@@ -15,69 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('affectations')->insert([
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ],
-            [
-                'affectation_type'=>1,
-                'user_id'=>1,
-                'affectation_status'=>'1',
-                'zone_affectation'=>6
-            ]
-        ]);
-       /* DB::table('zones')->insert([
+        DB::table('zones')->insert([
             [
                 'zone_name' => 'Zone 01',
             ],
@@ -167,7 +105,6 @@ class DatabaseSeeder extends Seeder
                 'poste_title' => 'fonctionnaire',
                 'user_id'=>4
             ],
-        ]);*/
-
+        ]);
     } 
 }
